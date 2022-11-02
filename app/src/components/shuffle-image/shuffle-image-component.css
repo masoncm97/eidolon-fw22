@@ -1,0 +1,43 @@
+.shuffle-image-container {
+    border: 1px solid green;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.half {
+    width: 20%;
+}
+
+.image-scroll-container {
+    margin-top: 15%;
+    z-index: 1;
+}
+
+.description-container {
+    margin-bottom: 20px;
+    display: relative;
+}
+
+.image {
+    z-index: 1;
+    position: relative;
+}
+.description {
+    z-index: -1;
+    position: relative;
+}
+
+.play-pause-button {
+    border: none;
+    background-color: inherit;
+    color: #FF0000;
+    font-size: 2em;
+}
+
+.arrows {
+    z-index: 99;
+    width: 40%;
+}
+
