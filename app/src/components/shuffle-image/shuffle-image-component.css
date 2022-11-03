@@ -2,8 +2,8 @@
     border: 1px solid green;
     min-width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
     display: flex;
+    background-color: black; 
 }
 
 .half {

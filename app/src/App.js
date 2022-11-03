@@ -1,6 +1,7 @@
 
 import './App.css';
 import ShuffleImageComponent from "./components/shuffle-image/shuffle-image-component";
+import LandingPageComponent from "./components/landing-page/landing-page-component";
 import {
   Routes,
   Route
@@ -11,7 +12,7 @@ function App() {
   return (
     <AppContainer>
       <Routes>
-        <Route exact path="/" element={<ShuffleImageComponent />} />
+        <Route exact path="/" element={<LandingPageComponent />} />
       </Routes>
     </AppContainer>
   );
