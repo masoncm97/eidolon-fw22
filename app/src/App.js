@@ -1,6 +1,5 @@
 
 import './App.css';
-import ShuffleImageComponent from "./components/shuffle-image/shuffle-image-component";
 import LandingPageComponent from "./components/landing-page/landing-page-component";
 import {
   Routes,
@@ -23,9 +22,10 @@ export const AppContainer = styled.div`
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    min-width: 100vw;
-    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     border: 1px solid blue;
+    overflow: hidden;
 `;
 
 export default App;
