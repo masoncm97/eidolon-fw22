@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { extend } from '@react-three/fiber'
 import styled from 'styled-components';
 import { randCoordinates } from '../../common/functions';
-import { Image } from '@react-three/drei'
+import { Image, OrthographicCamera } from '@react-three/drei'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useSpring, a, useSprings, animated } from "@react-spring/three"
 import { useGesture, useDrag } from "@use-gesture/react"
@@ -103,13 +103,22 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position }) => {
     const { size, viewport } = useThree();
     const aspect = size.width / viewport.width;
 
-    const bind = useDrag(({ args: [originalIndex], active, offset: [ox, oy] }) => {
-        api.start((index) => {
-            if (!active || index != originalIndex) return
-            return { position: [ox / aspect, -oy / aspect, 0]  };
-        }
-        )}
-    );
+    // const bind = useDrag(({ args: [originalIndex], active, offset: [ox, oy] }) => {
+    //     api.start((index) => {
+    //         if (!active || index != originalIndex) return
+    //         return { position: [ox / aspect, -oy / aspect, 100/aspect]  };
+    //     }
+    //     )}
+    // );
+
+    const bind = useGesture({
+        onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy)),
+    });
+
+    const drag = (originalIndex, index, active, ox, oy) => {
+        if (!active || index != originalIndex) return
+            return { position: [ox / aspect, -oy / aspect, 75/aspect]  };
+    };
 
     // const imagesRef = useRef(imageKeys.map((_, index) => index));
 
