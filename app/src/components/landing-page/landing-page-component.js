@@ -14,7 +14,7 @@ const LandingPageComponent = () => {
 
 export const LandingPage = styled.div`
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     position: relative;
 `;
 

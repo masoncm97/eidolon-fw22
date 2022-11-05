@@ -13,7 +13,7 @@ const EidolonBannerComponent = () => {
 
 export const EidolonBanner = styled.div`
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     background-color: black;
     position: absolute;
     display: flex;

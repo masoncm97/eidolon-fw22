@@ -72,10 +72,11 @@ const ShuffleImageComponent = () => {
     // })
 
     //console.log(springs);
+    console.log(window.innerWidth);
 
     return (
         <ShuffleImageContainer style={{touchAction: 'none'}}>
-            <Canvas orthographic camera={{ position: [0, 0, 1], left: -2, right: 2, top: -2, bottom: 2, zoom: 300}} style={{ height: "100vh", overflow: "hidden"}}>
+            <Canvas orthographic camera={{ left: window.innerWidth/-2, right: window.innerWidth/2, top: window.innerWidth/-2, bottom: window.innerWidth/2, zoom: 300}} style={{ height: "100vh", overflow: "hidden"}}>
                 <group>
                     {springs.map(
                         ({ position }, index) =>
@@ -113,12 +114,18 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position }) => {
 
     const bind = useGesture({
         onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy)),
+        // onDragEnd:({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => dragEnd(originalIndex, index, active, ox, oy)), 
     });
 
     const drag = (originalIndex, index, active, ox, oy) => {
         if (!active || index != originalIndex) return
-            return { position: [ox / aspect, -oy / aspect, 75/aspect]  };
+            return { position: [ox / aspect, -oy / aspect, 1]  };
     };
+
+    // const dragEnd = (originalIndex, index, ox, oy) => {
+    //     if (index != originalIndex) return
+    //         return { position: [ox, oy, 10]  };
+    // };
 
     // const imagesRef = useRef(imageKeys.map((_, index) => index));
 
