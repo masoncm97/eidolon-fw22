@@ -74,8 +74,8 @@ const ShuffleImageComponent = () => {
     //console.log(springs);
 
     return (
-        <ShuffleImageContainer>
-            <Canvas camera={{ position: [0, 0, 1], fov: 90 }} style={{ height: "100vh", overflow: "hidden"}}>
+        <ShuffleImageContainer style={{touchAction: 'none'}}>
+            <Canvas orthographic camera={{ position: [0, 0, 1], left: -2, right: 2, top: -2, bottom: 2, zoom: 300}} style={{ height: "100vh", overflow: "hidden"}}>
                 <group>
                     {springs.map(
                         ({ position }, index) =>
@@ -181,6 +181,7 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position }) => {
     return (
         <animated.mesh {...bind(index)}
             position={position}
+            style={{touchAction: 'none'}}
         >
             <Image position={[...randCoordinates(apothem), 0]} url={imageKeys[index]} />
         </animated.mesh>
