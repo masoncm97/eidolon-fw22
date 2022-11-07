@@ -1,67 +1,39 @@
-.shuffle-image-container {
-    border: 1px solid green;
-    min-width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    background-color: black; 
-}
-
-.shuffle-button {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .nav-menu {
     position: absolute;
-    top: 0;
-    left: 0; 
+    top: 0%;
+    left: 47%;
     color: white;
+    display: flex;
 }
 
-button, input[type="submit"], input[type="button"] {
-	background: none;
-	color: white;
-    border: 1px solid white;
-	border: none;
-	padding: 0;
+.button {
+    background: none;
+    border: none;
 	font: inherit;
 	cursor: pointer;
-	outline: inherit;
 }
 
-.half {
-    width: 20%;
+.ig-logo {
+    width: 50%;
+    margin-top: 10px;
 }
 
-.image-scroll-container {
-    margin-top: 15%;
-    z-index: 1;
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.description-container {
-    margin-bottom: 20px;
-    display: relative;
+.nav-icon {
+    width: 30%;
+    min-width: 50px;
 }
 
-.image {
-    z-index: 1;
-    position: relative;
-}
-.description {
-    z-index: -1;
-    position: relative;
-}
 
-.play-pause-button {
-    border: none;
-    background-color: inherit;
-    color: #FF0000;
-    font-size: 2em;
-}
-
-.arrows {
-    z-index: 99;
-    width: 40%;
+@media screen and (min-width: 1024px) { 
+    .ig-logo {
+    width: 25%;
+    margin-top: 20px;
+    }
 }
 
