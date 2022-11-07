@@ -24,8 +24,8 @@ export const AppContainer = styled.div`
     overflow: hidden;
     max-width: 100vw;
     max-height: 100vh;
-    border: 1px solid blue;
     overflow: hidden;
+    touch-action: none;
 `;
 
 export default App;
