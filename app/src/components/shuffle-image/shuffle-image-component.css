@@ -25,11 +25,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid blue;
 }
 
 .nav-icon {
     width: 20%;
     min-width: 50px;
+    border: 1px solid red;
 }
 
 
