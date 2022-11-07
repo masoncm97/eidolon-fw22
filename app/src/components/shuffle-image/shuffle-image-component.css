@@ -5,6 +5,7 @@
     color: white;
     display: flex;
     max-width: 100%;
+    justify-content: flex-end;
 }
 
 .button {
@@ -15,28 +16,31 @@
 }
 
 .ig-logo {
-    width: 20%;
-    min-width: 30px;
     margin-top: 10px;
-    border: 1px solid red;
+    width:60%;
 }
 
 .nav-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
+    min-width: 50px;
+    width: 20%;
 }
 
 .nav-icon {
-    min-width: 50px;
-    border: 1px solid red;
+    width: 80%;
 }
 
 
 @media screen and (min-width: 1024px) { 
+
+    .nav-icon {
+        width: 40%;
+    }
+
     .ig-logo {
-    width: 15%;
+    width: 30%;
     margin-top: 20px;
     }
 }

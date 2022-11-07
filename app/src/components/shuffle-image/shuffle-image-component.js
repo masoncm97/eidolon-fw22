@@ -16,7 +16,7 @@ const ShuffleImageComponent = () => {
 
     const forceUpdate = useForceUpdate()
     const CANV_APOTHEM = 2;
-    const imgFolder = require.context('../../eidolon-fw22/', false);
+    const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
 
     const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
