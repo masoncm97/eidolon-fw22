@@ -1,9 +1,10 @@
 .nav-menu {
     position: absolute;
-    top: 0%;
-    left: 47%;
+    top: 0;
+    right: 0;
     color: white;
     display: flex;
+    max-width: 70%;
 }
 
 .button {
@@ -14,7 +15,7 @@
 }
 
 .ig-logo {
-    width: 50%;
+    width: 35%;
     margin-top: 10px;
 }
 
@@ -25,14 +26,14 @@
 }
 
 .nav-icon {
-    width: 30%;
+    width: 20%;
     min-width: 50px;
 }
 
 
 @media screen and (min-width: 1024px) { 
     .ig-logo {
-    width: 25%;
+    width: 15%;
     margin-top: 20px;
     }
 }

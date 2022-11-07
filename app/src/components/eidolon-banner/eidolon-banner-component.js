@@ -25,6 +25,7 @@ export const Heading = styled.h1`
     font-family: Helvetica;
     font-size: 800%;
     text-align: center;
+    max-height: 80vh;
 `;
 
 export const Copyright = styled.p`
