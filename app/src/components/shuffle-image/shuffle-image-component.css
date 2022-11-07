@@ -16,6 +16,7 @@
 
 .ig-logo {
     width: 20%;
+    min-width: 30px;
     margin-top: 10px;
     border: 1px solid red;
 }
@@ -25,11 +26,11 @@
     justify-content: center;
     align-items: center;
     border: 1px solid blue;
-    min-width: 50px;
 }
 
 .nav-icon {
     width: 20%;
+    min-width: 50px;
     border: 1px solid red;
 }
 
