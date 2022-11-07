@@ -55,6 +55,7 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position }) => {
 
     const bind = useGesture({
         onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy)),
+        onPinch:({ args: [originalIndex], offset}) => api.start((index) => pinch(originalIndex, index, offset)), 
     });
 
     const drag = (originalIndex, index, active, ox, oy) => {
@@ -62,9 +63,15 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position }) => {
             return { position: [ox / aspect, -oy / aspect, 1]  };
     };
 
+    const pinch = (originalIndex, index, offset) => {
+        if (index !== originalIndex)  return { scale: [1,1,1]  }
+            return { scale: [offset, offset, offset]  };
+    };
+
     return (
         <animated.mesh {...bind(index)}
             position={position}
+            scale={scale}
             style={{touchAction: 'none'}}
         >
             <Image position={[...randCoordinates(apothem), 0]} url={imageKeys[index]} />
