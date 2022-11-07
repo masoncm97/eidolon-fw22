@@ -22,7 +22,7 @@ const ShuffleImageComponent = () => {
     const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
 
     return (
-        <ShuffleImageContainer style={{touchAction: 'none'}}>
+        <ShuffleImageContainer>
             <Canvas orthographic camera={{ left: window.innerWidth/-2, right: window.innerWidth/2, top: window.innerWidth/-2, bottom: window.innerWidth/2, zoom: 300}} style={{ height: "100vh", overflow: "hidden"}}>
                 <group>
                     {springs.map(
