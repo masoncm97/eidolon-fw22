@@ -67,7 +67,7 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position, scale}) => {
     const pinch = (originalIndex, index, offset) => {
         if (index !== originalIndex || offset[0] < 1)  return { scale: [1,1,1]  }
         console.log(offset[0]);
-        return { scale: [offset[0]*1.2, offset[0]*1.2, 1]  };
+        return { scale: [offset[0]*1.1, offset[0]*1.1, 1]  };
     };
 
     return (
