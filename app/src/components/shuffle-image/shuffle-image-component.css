@@ -17,6 +17,7 @@
 .ig-logo {
     width: 35%;
     margin-top: 10px;
+    border: 1px solid red;
 }
 
 .nav-item {
