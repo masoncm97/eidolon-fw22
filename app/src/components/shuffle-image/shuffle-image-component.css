@@ -26,7 +26,6 @@
     align-items: center;
     min-width: 50px;
     width: 20%;
-    border: 1px solid red;
 }
 
 .cart {
@@ -35,7 +34,6 @@
 
 .arrow {
     width: 90%;
-    border: 1px solid red;
     min-width: 65px;
 }
 
