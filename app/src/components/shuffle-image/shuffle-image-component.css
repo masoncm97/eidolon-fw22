@@ -33,7 +33,8 @@
 }
 
 .arrow {
-    width: 85%;
+    width: 90%;
+    border: 1px solid red;
 }
 
 
