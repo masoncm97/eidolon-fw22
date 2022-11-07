@@ -18,20 +18,17 @@
     width: 20%;
     min-width: 30px;
     margin-top: 10px;
-    border: 1px solid red;
 }
 
 .nav-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
 }
 
 .nav-icon {
     width: 20%;
     min-width: 50px;
-    border: 1px solid red;
 }
 
 
