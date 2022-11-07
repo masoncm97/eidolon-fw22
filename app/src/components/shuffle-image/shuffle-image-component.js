@@ -40,8 +40,8 @@ const ShuffleImageComponent = () => {
                 </group>
             </Canvas>
             <div className="nav-menu">
-                <button onClick={() => forceUpdate()}  className="button nav-item"><img className="nav-icon" alt="refresh-arrow" src={refreshArrow} /></button>
-                <a className="nav-item" href="https://eidolonnyc.myshopify.com/"><img className="nav-icon" alt="cart-logo" src={cart} /></a>
+                <button onClick={() => forceUpdate()}  className="button nav-item"><img className="arrow" alt="refresh-arrow" src={refreshArrow} /></button>
+                <a className="nav-item" href="https://eidolonnyc.myshopify.com/"><img className="cart" alt="cart-logo" src={cart} /></a>
                 <a className="nav-item" href="https://www.instagram.com/e.idol.on/"><img className="ig-logo" alt="ig-logo" src={ig} /></a>  
             </div>
         </ShuffleImageContainer>

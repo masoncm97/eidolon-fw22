@@ -28,15 +28,23 @@
     width: 20%;
 }
 
-.nav-icon {
+.cart {
     width: 80%;
+}
+
+.arrow {
+    width: 85%;
 }
 
 
 @media screen and (min-width: 1024px) { 
 
-    .nav-icon {
+    .cart {
         width: 40%;
+    }
+
+    .arrow {
+        width: 45%;
     }
 
     .ig-logo {
