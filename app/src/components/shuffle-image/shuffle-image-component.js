@@ -19,21 +19,22 @@ const ShuffleImageComponent = () => {
     const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
 
-    const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
+    const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0], scale: [1,1,1] }))
 
     return (
         <ShuffleImageContainer>
             <Canvas orthographic camera={{ left: window.innerWidth/-2, right: window.innerWidth/2, top: window.innerWidth/-2, bottom: window.innerWidth/2, zoom: 300}} style={{ height: "100vh", overflow: "hidden"}}>
                 <group>
                     {springs.map(
-                        ({ position }, index) =>
+                        ({ position, scale}, index) =>
                             <ShuffleImage 
                             imageKeys={imageKeys} 
                             apothem= {CANV_APOTHEM}
                             api={api}
                             key={index} 
                             index={index}
-                            position={position}>
+                            position={position}
+                            scale={scale}>
                             </ShuffleImage>
                     )
                     }
@@ -48,7 +49,7 @@ const ShuffleImageComponent = () => {
     );
 };
 
-const ShuffleImage= ({ imageKeys, apothem, api, index, position }) => {
+const ShuffleImage= ({ imageKeys, apothem, api, index, position, scale}) => {
     const { size, viewport } = useThree();
     const aspect = size.width / viewport.width;
 
