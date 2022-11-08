@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import styled from 'styled-components';
 import { randCoordinates } from '../../common/functions';
 import { Image } from '@react-three/drei'
@@ -18,7 +18,8 @@ const ShuffleImageComponent = () => {
     const CANV_APOTHEM = 2;
     const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
-
+    // const [dragging, setDragging] = useState(false);
+    const draggingIndex = useRef(-1);
     // const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0], scale: [1,1,1] }))
     const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
     
@@ -28,7 +29,7 @@ const ShuffleImageComponent = () => {
             <Canvas orthographic camera={{ left: window.innerWidth/-2, right: window.innerWidth/2, top: window.innerWidth/-2, bottom: window.innerWidth/2, zoom: 300}} style={{ height: "100vh", overflow: "hidden"}}>
                 <group>
                     {springs.map(
-                        ({ position,}, index) =>
+                        ({ position}, index) =>
                             <ShuffleImage 
                             imageKeys={imageKeys} 
                             apothem= {CANV_APOTHEM}
@@ -36,6 +37,7 @@ const ShuffleImageComponent = () => {
                             key={index} 
                             index={index}
                             position={position}
+                            dragging={draggingIndex}
                             >
                             </ShuffleImage>
                     )
@@ -51,14 +53,13 @@ const ShuffleImageComponent = () => {
     );
 };
 
-const ShuffleImage= ({ imageKeys, apothem, api, index, position}) => {
+const ShuffleImage= ({ imageKeys, apothem, api, index, position, dragging}) => {
     const { size, viewport } = useThree();
     const aspect = size.width / viewport.width;
 
 
     const bind = useGesture({
         onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy))
-        // onPinch:({ args: [originalIndex], offset}) => api.start((index) => pinch(originalIndex, index, offset)), 
     });
 
     const drag = (originalIndex, index, active, ox, oy) => {
@@ -75,7 +76,6 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position}) => {
     return (
         <animated.mesh {...bind(index)}
             position={position}
-            // scale={scale}
             style={{touchAction: 'none'}}
         >
             <Image position={[...randCoordinates(apothem), 0]} url={imageKeys[index]} />
