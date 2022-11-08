@@ -16,7 +16,7 @@ const ShuffleImageComponent = () => {
 
     const forceUpdate = useForceUpdate()
     const CANV_APOTHEM = 2;
-    const imgFolder = require.context('../../eidolon-fw22/large/', false);
+    const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
     // const [dragging, setDragging] = useState(false);
     const draggingIndex = useRef(-1);
