@@ -20,6 +20,7 @@ const ShuffleImageComponent = () => {
     const imageKeys = imgFolder.keys().map(imgFolder);
 
     // const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0], scale: [1,1,1] }))
+    const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
     
 
     return (
