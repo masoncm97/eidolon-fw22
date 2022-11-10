@@ -51,21 +51,21 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position, draggingIndex})
     const aspect = size.width / viewport.width;
 
     const bind = useGesture({
-        onDragStart: ({ args: [originalIndex]}) => pickTopImage(originalIndex),
+        // onDragStart: ({ args: [originalIndex]}) => pickTopImage(originalIndex),
         onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy)),
         onDragEnd: () => { draggingIndex.current = -1 }
     });
 
-    const pickTopImage = (originalIndex) => {
-         console.log(originalIndex);
-        if(originalIndex > draggingIndex.current) {
-            draggingIndex.current = originalIndex;
-            console.log(draggingIndex);
-        }
-    };
+    // const pickTopImage = (originalIndex) => {
+    //      console.log(originalIndex);
+    //     if(originalIndex > draggingIndex.current) {
+    //         draggingIndex.current = originalIndex;
+    //         console.log(draggingIndex);
+    //     }
+    // };
 
     const drag = (originalIndex, index, active, ox, oy) => {
-        if (!active || index !== originalIndex || draggingIndex.current !== originalIndex) return
+        if (!active || index !== originalIndex) return
             return { position: [ox / aspect, -oy / aspect, 0]  };
     };
 
