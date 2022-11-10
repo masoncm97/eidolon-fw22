@@ -16,6 +16,7 @@ function App() {
   const [update, setUpdate] = useState(false);
   const forceUpdate = () => { setUpdate(!update) };
 
+
   return (
     <AppContainer>
       <EidolonBannerComponent></EidolonBannerComponent>
@@ -26,7 +27,8 @@ function App() {
       <NavMenuComponent forceUpdate={forceUpdate}></NavMenuComponent>
     </AppContainer>
   );
-}
+};
+
 
 export const AppContainer = styled.div`
     border: 1px solid green;

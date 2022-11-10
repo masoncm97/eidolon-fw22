@@ -12,7 +12,7 @@ const ScrollImageComponent = () => {
         <ScrollImageContainer>
             {
                 imageKeys.map(element => {
-                    return (<ImageContainer key={++i}><img alt="text" src={element}/></ImageContainer>)
+                    return (<ImageContainer key={++i}><Image alt="Runway" src={element}/></ImageContainer>)
                 })
             }
         </ScrollImageContainer>
@@ -29,9 +29,17 @@ export const ScrollImageContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-    border: 1px solid red;
-    background-color: blue;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 `;
+
+const Image = styled.img`
+    width: 80%;
+    margin: 20px 0px 20px 0px;
+`;
+
 
 
 export default ScrollImageComponent;
