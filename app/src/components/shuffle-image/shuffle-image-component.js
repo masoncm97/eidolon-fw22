@@ -14,9 +14,7 @@ const ShuffleImageComponent = () => {
     const CANV_APOTHEM = 2;
     const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
-    // const [dragging, setDragging] = useState(false);
     const draggingIndex = useRef(-1);
-    // const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0], scale: [1,1,1] }))
     const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
 
 
@@ -44,7 +42,7 @@ const ShuffleImageComponent = () => {
     );
 };
 
-const ShuffleImage= ({ imageKeys, apothem, api, index, position, dragging}) => {
+const ShuffleImage= ({ imageKeys, apothem, api, index, position}) => {
     const { size, viewport } = useThree();
     const aspect = size.width / viewport.width;
 
@@ -55,14 +53,8 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position, dragging}) => {
 
     const drag = (originalIndex, index, active, ox, oy) => {
         if (!active || index !== originalIndex) return
-            return { position: [ox / aspect, -oy / aspect, 1]  };
+            return { position: [ox / aspect, -oy / aspect, 0]  };
     };
-
-    // const pinch = (originalIndex, index, offset) => {
-    //     if (index !== originalIndex || offset[0] < 1)  return { scale: [1,1,1]  }
-    //     console.log(offset[0]);
-    //     return { scale: [offset[0]*1.1, offset[0]*1.1, 1]  };
-    // };
 
     return (
         <animated.mesh {...bind(index)}

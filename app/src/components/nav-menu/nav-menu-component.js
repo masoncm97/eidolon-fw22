@@ -20,7 +20,6 @@ const NavMenuComponent = ({forceUpdate}) => {
             <a className={path === 'shuffle' ? 'hidden' : 'nav-item'} href="/shuffle"><img className="cart" alt="cart-logo" src={shuffleLogo} /></a>
             <a className="nav-item" href="https://eidolonnyc.myshopify.com/"><img className="cart" alt="cart-logo" src={cart} /></a>
             <a className="nav-item" href="https://www.instagram.com/e.idol.on/"><img className="ig-logo" alt="ig-logo" src={ig} /></a>
-
         </NavMenu>
     );
 };
