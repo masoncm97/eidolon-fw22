@@ -35,7 +35,7 @@ const ShuffleImageComponent = () => {
                             key={index} 
                             index={index}
                             position={position}
-                            dragging={draggingIndex}
+                            draggingIndex={draggingIndex}
                             >
                             </ShuffleImage>
                     )
@@ -46,17 +46,26 @@ const ShuffleImageComponent = () => {
     );
 };
 
-const ShuffleImage= ({ imageKeys, apothem, api, index, position}) => {
+const ShuffleImage= ({ imageKeys, apothem, api, index, position, draggingIndex}) => {
     const { size, viewport } = useThree();
     const aspect = size.width / viewport.width;
 
-
     const bind = useGesture({
-        onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy))
+        onDragStart: ({ args: [originalIndex]}) => pickTopImage(originalIndex),
+        onDrag: ({ args: [originalIndex], active, offset: [ox, oy] }) => api.start((index) => drag(originalIndex, index, active, ox, oy)),
+        onDragEnd: () => { draggingIndex.current = -1 }
     });
 
+    const pickTopImage = (originalIndex) => {
+         console.log(originalIndex);
+        if(originalIndex > draggingIndex.current) {
+            draggingIndex.current = originalIndex;
+            console.log(draggingIndex);
+        }
+    };
+
     const drag = (originalIndex, index, active, ox, oy) => {
-        if (!active || index !== originalIndex) return
+        if (!active || index !== originalIndex || draggingIndex.current != originalIndex) return
             return { position: [ox / aspect, -oy / aspect, 0]  };
     };
 
