@@ -33,7 +33,7 @@
 }
 
 .arrow {
-    width: 90%;
+    width: 80%;
     min-width: 65px;
 }
 
@@ -45,7 +45,8 @@
     }
 
     .arrow {
-        width: 45%;
+        padding-top: 5px;
+        width: 35%;
     }
 
     .ig-logo {

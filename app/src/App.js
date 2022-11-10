@@ -31,7 +31,6 @@ function App() {
 
 
 export const AppContainer = styled.div`
-    border: 1px solid green;
     width: 100vw;
     min-height: 100vh;
     display: flex;

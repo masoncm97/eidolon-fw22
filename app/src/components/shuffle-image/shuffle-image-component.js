@@ -4,15 +4,19 @@ import { randCoordinates } from '../../common/functions';
 import { Image } from '@react-three/drei'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useSprings, animated } from "@react-spring/three"
-import { useGesture } from "@use-gesture/react"
+import { useGesture } from "@use-gesture/react";
+import useMediaQuery from '../../common/hooks/useMediaQuery';
+import { device } from '../../common/device-sizes';
 import './shuffle-image-component.css';
+
 
     
 const ShuffleImageComponent = () => {
 
     
     const CANV_APOTHEM = 2;
-    const imgFolder = require.context('../../eidolon-fw22/small/', false);
+    const isNonMobile = useMediaQuery(`${device.laptop}`);
+    const imgFolder = (isNonMobile) ? require.context('../../eidolon-fw22/large/', false) : require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
     const draggingIndex = useRef(-1);
     const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))

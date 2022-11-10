@@ -16,7 +16,7 @@ const NavMenuComponent = ({forceUpdate}) => {
     return (
         <NavMenu>
             <button onClick={forceUpdate} className={path === 'shuffle' ? 'button nav-item' : 'hidden'}><img className="arrow" alt="refresh-arrow" src={refreshArrow} /></button>
-            <a className={path === 'shuffle' ? 'nav-item' : 'hidden'} href="/"><img className="cart" alt="cart-logo" src={scrollLogo} /></a> 
+            <a className={path === 'shuffle' ? 'nav-item' : 'hidden'} href="/"><img className="ig-logo" alt="cart-logo" src={scrollLogo} /></a> 
             <a className={path === 'shuffle' ? 'hidden' : 'nav-item'} href="/shuffle"><img className="cart" alt="cart-logo" src={shuffleLogo} /></a>
             <a className="nav-item" href="https://eidolonnyc.myshopify.com/"><img className="cart" alt="cart-logo" src={cart} /></a>
             <a className="nav-item" href="https://www.instagram.com/e.idol.on/"><img className="ig-logo" alt="ig-logo" src={ig} /></a>
