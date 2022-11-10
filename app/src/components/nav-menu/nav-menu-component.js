@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import refreshArrow from '../../assets/SVG/refresh-arrow.svg';
 import cart from '../../assets/SVG/cart.svg';

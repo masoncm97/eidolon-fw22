@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ScrollImageComponent = ({ data }) => {
+const ScrollImageComponent = () => {
 
     const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
@@ -12,7 +12,7 @@ const ScrollImageComponent = ({ data }) => {
         <ScrollImageContainer>
             {
                 imageKeys.map(element => {
-                    return (<ImageContainer key={++i}><img src={element}/></ImageContainer>)
+                    return (<ImageContainer key={++i}><img alt="text" src={element}/></ImageContainer>)
                 })
             }
         </ScrollImageContainer>
