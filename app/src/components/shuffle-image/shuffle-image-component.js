@@ -65,7 +65,7 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position, draggingIndex})
     };
 
     const drag = (originalIndex, index, active, ox, oy) => {
-        if (!active || index !== originalIndex || draggingIndex.current != originalIndex) return
+        if (!active || index !== originalIndex || draggingIndex.current !== originalIndex) return
             return { position: [ox / aspect, -oy / aspect, 0]  };
     };
 
