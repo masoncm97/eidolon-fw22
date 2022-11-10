@@ -5,16 +5,12 @@ import { Image } from '@react-three/drei'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useSprings, animated } from "@react-spring/three"
 import { useGesture } from "@use-gesture/react"
-import useForceUpdate from "../../common/hooks/useForceUpdate";
-import refreshArrow from '../../assets/SVG/refresh-arrow.svg';
-import cart from '../../assets/SVG/cart.svg';
-import ig from '../../assets/SVG/ig-logo.svg';
 import './shuffle-image-component.css';
 
     
 const ShuffleImageComponent = () => {
 
-    const forceUpdate = useForceUpdate()
+    
     const CANV_APOTHEM = 2;
     const imgFolder = require.context('../../eidolon-fw22/small/', false);
     const imageKeys = imgFolder.keys().map(imgFolder);
@@ -22,7 +18,7 @@ const ShuffleImageComponent = () => {
     const draggingIndex = useRef(-1);
     // const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0], scale: [1,1,1] }))
     const [springs, api] = useSprings(imageKeys.length, () => ({ position: [0, 0, 0] }))
-    
+
 
     return (
         <ShuffleImageContainer>
@@ -44,11 +40,6 @@ const ShuffleImageComponent = () => {
                     }
                 </group>
             </Canvas>
-            <div className="nav-menu">
-                <button onClick={() => forceUpdate()}  className="button nav-item"><img className="arrow" alt="refresh-arrow" src={refreshArrow} /></button>
-                <a className="nav-item" href="https://eidolonnyc.myshopify.com/"><img className="cart" alt="cart-logo" src={cart} /></a>
-                <a className="nav-item" href="https://www.instagram.com/e.idol.on/"><img className="ig-logo" alt="ig-logo" src={ig} /></a>  
-            </div>
         </ShuffleImageContainer>
     );
 };
@@ -85,11 +76,12 @@ const ShuffleImage= ({ imageKeys, apothem, api, index, position, dragging}) => {
 };
 
 export const ShuffleImageContainer = styled.div`
-    border: 1px solid green;
-    min-width: 100vw;
-    min-height: 100vh;
     display: flex;
-    background-color: black; 
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
 `;
 
 

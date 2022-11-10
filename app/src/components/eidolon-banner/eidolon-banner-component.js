@@ -12,13 +12,14 @@ const EidolonBannerComponent = () => {
 };
 
 export const EidolonBanner = styled.div`
-    width: 100vw;
-    height: 100vh;
     background-color: black;
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: -1;
+    overflow: hidden;
+    touch-action: none;
 `;
 export const Heading = styled.h1`
     color: white;

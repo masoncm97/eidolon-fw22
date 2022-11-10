@@ -1,17 +1,37 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const ScrollImageComponent = ({ data }) => {
 
-    console.log(data);
+    const imgFolder = require.context('../../eidolon-fw22/small/', false);
+    const imageKeys = imgFolder.keys().map(imgFolder);
+    var i = 0;
+    console.log(imageKeys);
+    
     return (
-        <div className="border-red flex-column">
+        <ScrollImageContainer>
             {
-                data.map(element => {
-                    return (<div key={element._id} className="flex-center"><img className="half" src={element.images.medium} srcSet={`${element.images.small} 400w, ${element.images.medium} 700w, ${element.images.large} 1000w`} alt={element.title} sizes="50vw"/></div>)
+                imageKeys.map(element => {
+                    return (<ImageContainer key={++i}><img src={element}/></ImageContainer>)
                 })
             }
-        </div>
+        </ScrollImageContainer>
     );
 };
+
+export const ScrollImageContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    align-items: center;
+    background: none;
+    width: 100vw;
+`;
+
+export const ImageContainer = styled.div`
+    border: 1px solid red;
+    background-color: blue;
+`;
+
 
 export default ScrollImageComponent;
